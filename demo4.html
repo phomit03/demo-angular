@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo 4 - Nested Scopes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <p>The rootScope's favorite color:</p>
+    <h1>{{color}}</h1>
+
+    <div ng-controller="myCtrl">
+        <p>The Scope of the controller's favorite color: </p>
+        <h1>{{color}}</h1>
+    </div>
+
+    <p>The rootScope's favorite color is still:</p>
+    <h1>{{color}}</h1>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.run(function ($rootScope) {
+            $rootScope.color = 'blue';
+        });
+        app.controller('myCtrl', function ($scope) {
+            $scope = 'red';
+        })
+    </script>
+
+    <p>//Notice that controller's colỏ variable not overwrite the rootScope's color value.</p>
+</body>
+</html>

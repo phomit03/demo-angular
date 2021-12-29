@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo 2 - Data Binding in AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        FirstName: <input type="text" ng-model="firstName"><br>
+        LastName: <input type="text" ng-model="lastName"><br>
+        FullName: {{firstName + " " + lastName}}
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function ($scope){
+           $scope.firstName = "Nguyen";
+           $scope.lastName = "Xuan Thao";
+        });
+    </script>
+
+</body>
+</html>
